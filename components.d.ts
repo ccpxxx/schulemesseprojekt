@@ -5,9 +5,14 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Confirm: typeof import('./src/components/Confirm.vue')['default']
+    ContactDetails: typeof import('./src/components/ContactDetails.vue')['default']
+    PictureUpload: typeof import('./src/components/PictureUpload.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SignUp: typeof import('./src/components/SignUp.vue')['default']
+    Tab: typeof import('./src/components/Tab.vue')['default']
+    TabWrapper: typeof import('./src/components/TabWrapper.vue')['default']
   }
 }
 

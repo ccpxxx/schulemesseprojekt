@@ -1,30 +1,30 @@
 <template>
-  <div class="relative overflow-hidden">
-    <!-- small, blurry image. always loaded -->
-    <picture>
-      <source type="image/webp" :srcset="logo[0]">
-      <source type="image/avfi" :srcset="logo[1]">
-      <source type="image/jpeg" :srcset="logo[2]">
-      <img :src="logo[2]" alt="" role="presentation" loading="eager" height="200"
-        class="blur-sm pointer-events-none object-cover [height:200px]">
-    </picture>
-
-    <!-- full size image. lazy loaded -->
-    <picture>
-      <source type="image/webp" :srcset="logo[3]">
-      <source type="image/avfi" :srcset="logo[4]">
-      <source type="image/jpeg" :srcset="logo[5]">
-      <img :src="logo[5]" alt="logo" loading="lazy" height="200"
-        class="z-10 bg-transparent opacity-5 transition-opacity pointer-events-none motio object-cover absolute top-0 left-0 [height:200px]"
-        @load="imgLoaded">
-    </picture>
+  <div class="nav" v-if="admin">
+    <router-link to="/admin">Adminpanel</router-link>
   </div>
-  <HelloWorld :msg="$t('headline')" />
+  <header class="header bg-slate-300 w-full sticky">
+    <div class="flex flex-row  items-center justify-center">
+      <div class="w-1/3 pl-8">
+      <img src="./assets/logo.png" alt="Logo" class="logo " />
+      </div>
+      <div class="w-2/3 flex flex-col justify-center items-center">
+        <h1 class="text-4xl font-bold text-center">{{$t("introduction")}}</h1>
+        <h2 class="text-2xl font-bold text-center">Hier können sie ein Foto von sich machen und im Anschluss direkt ausdrucken lassen samt initialiten</h2>
+        <button class="self-center flex gap-1" @click="i18n.global.locale.value == 'en' ? i18n.global.locale.value ='de' : i18n.global.locale.value ='en'"><img class="h-12 w-12" :src="i18n.global.locale.value == 'en' ? flagDE : flagUK"><p class=" text-4xl">{{i18n.global.locale.value == 'en' ? 'DE' : 'EN'}}</p></button>
+
+      </div>
+    </div>
+  </header>
+  <RouterView />
+  <!-- <HelloWorld :msg="$t('headline')" /> -->
 </template>
 
 <script setup lang="ts">
 // @ts-ignore
 import logo from "./assets/logo.png?h=100;200&format=webp;avfi;png"
-
+import { i18n } from "./main";
+import flagDE from "./assets/flag-germany.svg";
+import flagUK from "./assets/flag-united-kingdom.svg";
+const admin = $ref(false)
 function imgLoaded(ev: Event) { (ev.target as HTMLImageElement).style.opacity = '100' }
 </script>

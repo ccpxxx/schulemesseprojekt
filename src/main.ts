@@ -5,20 +5,34 @@ import { createI18n } from 'vue-i18n'
 import './index.scss'
 import HomeVue from './views/Home.vue'
 import de from "./locales/de.json"
-import ContactVue from './views/Contact.vue'
+import en from "./locales/en.json"
+import AdminVue from './views/Admin.vue'
+import HelloWorldVue from './views/UserPanel.vue'
+import TabWrapperVue from './components/TabWrapper.vue'
+import UserPanelVue from './views/UserPanel.vue'
 
-const i18n = createI18n({
+export const i18n = createI18n({
     legacy: false,
     globalInjection: true,
     locale: "de",
-    messages: { de }
+    messages: { de, en }
 })
 
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'Home',
-        component: App,
+        component: HelloWorldVue,
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: AdminVue,
+    },
+    {
+        path: '/userpanel',
+        name: 'UserPanel',
+        component: UserPanelVue,
     }
 ]
 
