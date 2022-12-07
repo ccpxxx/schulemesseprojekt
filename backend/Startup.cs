@@ -46,6 +46,8 @@ namespace Messe
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            
+            app.UseCors("CorsApi");
 
             app.UseAuthorization();
 
