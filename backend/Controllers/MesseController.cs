@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
 namespace Messe.Controllers
@@ -20,6 +16,7 @@ namespace Messe.Controllers
         }
 
         [HttpGet("getUsers")]
+        [EnableCors("CorsApi")]
         public IActionResult getUsers()
         {
 
@@ -28,7 +25,7 @@ namespace Messe.Controllers
 
         public IActionResult submitCustomer([FromBody] Customer customer)
         {
-            return Ok(configuration);
+            return Ok(customer);
         }
     }
 }
