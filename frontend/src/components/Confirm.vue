@@ -1,5 +1,6 @@
 <template>
     Confirm
+    {{obj}}
 </template>
 
 <script setup lang="ts">

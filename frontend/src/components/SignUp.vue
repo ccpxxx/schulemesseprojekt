@@ -1,6 +1,6 @@
 <template>
    {{name}}
-   <input type="text" v-model="props.obj!.name" />
+   <input type="text" v-model="firstName" />
 </template>
 <script setup lang="ts">
 // Props mit defineProps und einem typescript interface definieren.
@@ -18,5 +18,6 @@ const changeStyle = () => {
 // Siehe auch: https://vuejs.org/guide/extras/reactivity-transform.html 
 const props = defineProps<{ obj?: UserObject }>()
 const name = $ref(props.obj?.name)
+const firstName =  $ref(props.obj?.firstname)
 const count = $ref(0)
 </script>

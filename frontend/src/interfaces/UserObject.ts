@@ -1,4 +1,6 @@
 export default interface UserObject {
-    id: string;
-    name: string;
+    id: number
+    firstname: string
+    name: string,
+    picture: string
 }
