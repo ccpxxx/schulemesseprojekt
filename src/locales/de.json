@@ -1,0 +1,10 @@
+{
+  "headline": "Hello Vue 3 + TypeScript + Vite",
+  "introduction": "Willkommen zu unserem Stand!",
+  "messe": {
+    "panel": {
+      "intro": "Willkommen zu unserem Stand!",
+      "copy": "Hier können sie ein Foto von sich machen und im Anschluss direkt ausdrucken lassen samt initialiten"
+    }
+  }
+}
