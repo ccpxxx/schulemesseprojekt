@@ -23,7 +23,7 @@ namespace Messe.Controllers
             return Ok(configuration.GetValue<string>("big:huge"));
         }
 
-        [HttpPost("getUsers")]
+        [HttpPost("submitCustomers")]
         [EnableCors("CorsApi")]
         public IActionResult submitCustomer([FromBody] Customer customer)
         {
