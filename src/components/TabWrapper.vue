@@ -3,7 +3,7 @@
       <ul class='tabs__header'>
         <li v-for='title in tabTitles'
         :key="title"
-        :class="{selected: title === selectedTitle}"
+        :class="{selected: title === selectedTitle, confirm: title === 'Confirm', register: title === 'Register', contact: title === 'Contact', picture: title === 'Picture'}"
         @click="selectedTitle=title"
         >
             {{title}}
@@ -101,5 +101,9 @@ export default {
        border: 1px solid black;
         background-color: lightblue !important;
         color: black!important;
+    }
+
+    .confirm {
+      pointer-events: none;
     }
   </style>

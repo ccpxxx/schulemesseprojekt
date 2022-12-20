@@ -1,5 +1,6 @@
 <template>
-    Confirm
+  <slot />
+
 </template>
 
 <script setup lang="ts">
