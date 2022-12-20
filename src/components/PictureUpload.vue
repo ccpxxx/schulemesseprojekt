@@ -19,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import xaxa from "../assets/xaxa123.jpg"
 import { triggerEvent } from "../utils/func";
 const emit = defineEmits<(event: string, value: string) => void>()
 const imgsrc = $ref("")
