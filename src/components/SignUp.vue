@@ -1,11 +1,10 @@
 <template>
-  <div class="flex flex-col gap-4">
-
-    <p>Vorname</p><input type="text" v-model="props.obj!.name" />
-    <p>Nachname</p><input type="text" />
-    <p>Email</p><input type="text"  />
-    <p>Rolle</p><input type="text"  />
-    <button class="send" @click="toContact">Next</button>
+  <div class="flex flex-col gap-4 w-1/2 m-auto  items-center">
+    <p class="mb-4">Nur 3 Klicks bis zu ihrem Messeausweis</p>
+    <label for="prename">Vorname</label>
+    <input name="prename" id="prename" class="mb-4" type="text" v-model="props.obj!.name" />
+   
+    <button class="send p-4 bg-green-400 w-full" @click="toContact">Next</button>
   </div>
 </template>
 <script setup lang="ts">

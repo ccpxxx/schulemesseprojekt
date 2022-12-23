@@ -1,9 +1,18 @@
 <template>
-  <div class="flex flex-col gap-4">
 
-    {{props.obj}}
-   <button @click="back">Back</button>
-    <button @click="next">Next</button>
+<div class="flex flex-col gap-4 w-1/2 m-auto  items-center">
+    <p class="mb-4">Nur 3 Klicks bis zu ihrem Messeausweis</p>
+    <label for="name">Nachname</label>
+    <input name="name" id="name" class="mb-4" type="text" v-model="props.obj!.name" />
+    <div class="flex flex-row gap-4 ">
+
+      <button  class="send p-4 bg-green-400 " @click="back">Back</button>
+      <button  class="send p-4 bg-green-400" @click="next">Next</button>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4 w-1/2 m-auto">
+
+   
   </div>
 </template>
 

@@ -23,6 +23,10 @@ import { triggerEvent } from "../utils/func";
 const emit = defineEmits<(event: string, value: string) => void>()
 const imgsrc = $ref("")
 const emitting = () => {
+    if(!imgsrc) {
+        alert("Please take a picture first")
+        return
+    }
     emit('picture', imgsrc)
 }
 const back = () => {

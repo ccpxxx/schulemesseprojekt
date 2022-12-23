@@ -12,10 +12,10 @@
     </div>
     
     <TabWrapper :mode="mode">
-      <TabVue title="Register"><SignUp :obj="userObject" /></TabVue>
-      <TabVue title="Contact"><ContactDetails :obj="userObject" /></TabVue>
-      <TabVue title="Picture"><PictureUpload @picture="switchTab" :obj="userObject" /></TabVue>
-      <TabVue title="Confirm" ref="finalTab" :test="'test'"><Confirm  /><FinalCard :obj="userObject" /></TabVue>
+      <TabVue title="1"><SignUp :obj="userObject" /></TabVue>
+      <TabVue title="2"><ContactDetails :obj="userObject" /></TabVue>
+      <TabVue title="3"><PictureUpload @picture="switchTab" :obj="userObject" /></TabVue>
+      <TabVue title="4" ref="finalTab" :test="'test'"><Confirm  /><FinalCard :obj="userObject" /></TabVue>
     </TabWrapper>
     </main>
 </template>
