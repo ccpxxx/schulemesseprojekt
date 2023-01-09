@@ -1,15 +1,6 @@
 <template>
   <main>
-    <div class="container mt-8 mx-auto pl-4">
-      <div class="w-1/2">
-        <div class="w-full">
 
-        
-        <h1>{{ $t('messe.panel.intro') }}</h1>
-        <h2>{{ $t('messe.panel.copy') }}</h2>
-      </div>
-      </div>
-    </div>
     
     <TabWrapper :mode="mode">
       <TabVue title="1"><SignUp :obj="userObject" /></TabVue>
@@ -28,7 +19,6 @@ import TabVue from '../components/Tab.vue';
 import FinalCard from '../components/FinalCard.vue';
 import logo from '../assets/logo.png';
 import { triggerEvent } from '../utils/func';
-import { castToVueI18n, I18nInjectionKey } from 'vue-i18n';
 import { onMounted } from 'vue';
 const userObject = $ref({ id: "2", name: "test", picture: logo });
 let mode = $ref('dark')

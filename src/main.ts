@@ -1,6 +1,6 @@
 import App from './App.vue'
 import { ViteSSG } from 'vite-ssg'
-import { RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 import { createI18n } from 'vue-i18n'
 import './index.scss'
 import HomeVue from './views/Home.vue'
@@ -23,10 +23,12 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'Home',
         component: HelloWorldVue,
+        beforeEnter: reset
     },
     {
         path: '/admin',
         name: 'Admin',
+        beforeEnter : guardMyroute,
         component: AdminVue,
     },
     {
@@ -36,9 +38,32 @@ const routes: RouteRecordRaw[] = [
     }
 ]
 
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+  });
+  
 export const createApp = ViteSSG(
     App,
     { routes },
     // hier normale vue Plugins aufrufen
-    ({ app }) => { app.use(i18n)},
+    ({ app, router }) => { app.use(i18n, router)},
 )
+
+function guardMyroute(to: any, from: any, next: (arg0: any | undefined) => void)
+{
+ var isAuthenticated= false;
+ if(localStorage.getItem('loggedUser'))
+  isAuthenticated = true;
+ else
+  isAuthenticated= false;
+if(isAuthenticated) {
+  next(); // allow to enter route
+ } else{
+  next('/'); // go to '/login';
+ }
+}
+
+function reset() {
+    localStorage.clear()
+}

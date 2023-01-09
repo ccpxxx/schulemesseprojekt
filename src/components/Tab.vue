@@ -1,5 +1,5 @@
 <template>
-    <div :class="test" class="wrapper-container" v-if="title == selectedTitle">
+    <div :class="test" class="wrapper-container print" v-if="title == selectedTitle">
       <slot></slot>
     </div>
   </template>

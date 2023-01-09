@@ -4,6 +4,28 @@
     "panel": {
       "intro": "Welcome to our Place!",
       "copy": "Here you can take a picture!"
-    }
-  }
+    },
+    "takePhoto": "Snap Photo",
+    "emit": "Confirm",
+    "newPicture": "Take new Picture",
+    "back": "Back",
+    "pleasePicFirst": "Please take a picture first",
+    "address": "Address",
+    "interest": "Interests",
+    "official": "Corporate Client",
+    "accessory": "Fairequipment",
+    "pet": "Petequipment",
+    "hobby": "Hobbycollector",
+    "next": "Next",
+    "prename": "Name",
+    "name": "Lastname",
+    "idName": "Vorname",
+    "print": "Print",
+    "home": "Home",
+    "client": "Client",
+    "sendclientdata": "Send normal data",
+    "sendcorporateclientdata": "Send offical data"
+  },
+  "adminpanel": "Adminpanel",
+  "hier-koennen-sie-ein-foto-von-sich-machen-und-im-anschluss-direkt-ausdrucken-lassen-samt-initialiten": "Here  you can take a picture with your Details!"
 }
