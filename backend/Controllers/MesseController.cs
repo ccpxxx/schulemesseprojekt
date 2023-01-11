@@ -15,8 +15,8 @@ namespace Messe.Controllers
         public MesseController(IConfiguration configuration)
         {
             this.configuration = configuration;
-            rep = new MongoRepoImpl("Records");
-            table = "Customer";
+            rep = new MongoRepoImpl(configuration.GetValue<string>("mongoServerDetails:database"));
+            table = configuration.GetValue<string>("mongoServerDetails:table");
         }
 
         [HttpGet("getUsers")]

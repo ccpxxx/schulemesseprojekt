@@ -14,6 +14,7 @@ namespace Messe
         public string picture { get; set; }
         public List<string> interests { get; set; }
         public bool isOfficial { get; set; }
+        public string company { get; set; } 
         public Customer()
         {
         }
