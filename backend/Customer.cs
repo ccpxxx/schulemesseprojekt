@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
+using System.Collections.Generic;
 
 namespace Messe
 {
@@ -11,7 +12,8 @@ namespace Messe
         [BsonId]
         public int id { get; set; }
         public string picture { get; set; }
-
+        public List<string> interests { get; set; }
+        public bool isOfficial { get; set; }
         public Customer()
         {
         }
