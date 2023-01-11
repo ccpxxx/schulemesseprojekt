@@ -9,25 +9,35 @@ namespace Messe.Controllers
     public class MesseController : ControllerBase
     {
         public IConfiguration configuration { get; }
+        private IMongoRepo<Customer> rep;
+        private string table;
 
         public MesseController(IConfiguration configuration)
         {
             this.configuration = configuration;
+            rep = new MongoRepoImpl(configuration.GetValue<string>("mongoServerDetails:database"));
+            table = configuration.GetValue<string>("mongoServerDetails:table");
         }
 
         [HttpGet("getUsers")]
         [EnableCors("CorsApi")]
         public IActionResult getUsers()
         {
-
-            return Ok(configuration.GetValue<string>("big:huge"));
+            return Ok(rep.getAllFromDb(this.table));
         }
 
         [HttpPost("submitCustomer")]
         [EnableCors("CorsApi")]
         public IActionResult submitCustomer([FromBody] Customer customer)
         {
-            return Ok(customer);
+            rep.saveCustomer(this.table, customer);
+            return Ok();
+        }
+        [HttpGet("getSpecificUser")]
+        [EnableCors("CorsApi")]
+        public IActionResult getSpecificUser()
+        {
+           return Ok();
         }
     }
 }
