@@ -8,7 +8,7 @@
     <button class="login-button  border-2" @click="logout" v-if="admin">Logout</button>
   </div>
   <dialog ref="popupDialog">
-  <div class="dialog-container flex flex-col">
+  <div class="dialog-container flex flex-col gap-2">
     <label>Name</label>
     <input v-model="username" type="text" />
     <label>Password</label>
@@ -53,6 +53,7 @@ function submit() {
     popup = !popup
     localStorage.setItem("loggedUser", "true")
     popupDialog!.close()
+    alert("Successfully logged in")
     return
   }
   alert('Wrong credentials')

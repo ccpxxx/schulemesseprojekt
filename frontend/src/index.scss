@@ -5,3 +5,19 @@
 #app {
   @apply bg-gray-400;
 }
+
+.user__input {
+  position: relative;
+}
+
+.user__input::after {
+  position: absolute;
+  content: "*";
+  margin-left: 2px;
+  color: red;
+
+}
+
+input[type="text"], input[type="password"], button {
+  @apply border-2 border-gray-400 rounded-lg p-2;
+}

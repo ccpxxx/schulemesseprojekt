@@ -1,6 +1,6 @@
 export default interface UserObject {
+    firstname: string;
     name: string;
-    lastName: string;
     address: string;
     interests: string[] | undefined;
     picture: string;

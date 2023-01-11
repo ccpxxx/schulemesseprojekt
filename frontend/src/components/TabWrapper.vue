@@ -62,7 +62,9 @@ export default {
       border-radius: 100%;
       margin: 0;
       font-size: 20px;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-right: 5px;
       cursor: pointer;
       width: 50px;

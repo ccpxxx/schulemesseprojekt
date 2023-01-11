@@ -8,9 +8,9 @@
         </div>
         <div class="card-container__right p-4 flex justify-center flex-col">
             <div class="card-container__right__text border border-gray-800 rounded-sm w-full h-full flex gap-2 flex-col">
-                <h2 v-if="obj.isOfficial" class="h-20 w-20 text-4xl">{{ $t('messe.official') }}</h2>
-                <h2 class="h-20 w-20 text-4xl">{{ $t('messe.prename') + " " + obj.name }}</h2>
-                <h2 class="h-20 w-20 text-4xl" >{{ $t('messe.name') + " " +  obj.lastName }}</h2>
+                <h2 v-if="obj.company" class="h-20 w-20 text-4xl">{{ obj.company }}</h2>
+                <h2 class="h-20 w-20 text-4xl">{{ $t('messe.prename') + " " + obj.firstname }}</h2>
+                <h2 class="h-20 w-20 text-4xl" >{{ $t('messe.name') + " " +  obj.name }}</h2>
                 <h2 v-if="obj.interests" class="h-20 w-20 text-4xl">{{ $t('messe.interest') + " " }}
                 
                 {{ obj.interests.map(val => {
@@ -27,10 +27,12 @@
 
 <script setup lang="ts">
 import UserObject from '../interfaces/UserObject';
-
+import axios from "axios";
 
 const props = defineProps<{ obj: UserObject }>()
-const print = () => {
+const print = async() => {
+    console.log(props.obj, "OBJ")
+    await axios.post("https://localhost:13377/api/messe/submitCustomer", props.obj)
     window.print()
 }
 </script>

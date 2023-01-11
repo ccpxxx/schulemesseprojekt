@@ -20,7 +20,7 @@ import FinalCard from '../components/FinalCard.vue';
 import logo from '../assets/logo.png';
 import { triggerEvent } from '../utils/func';
 import { onMounted } from 'vue';
-const userObject = $ref({ id: "2", name: "test", picture: logo });
+const userObject = $ref({} as UserObject);
 let mode = $ref('dark')
 const changeStyle = () => {
   mode = mode === 'dark' ? 'light' : 'dark'

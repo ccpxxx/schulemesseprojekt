@@ -10,7 +10,7 @@
     "name": "Nachname",
     "newPicture": "Neues Foto aufnehmen",
     "next": "Weiter",
-    "official": "Firmenkunde",
+    "official": "Firmenvertreter",
     "pet": "Tierzubehör",
     "takePhoto": "Foto aufnehmen",
     "pleasePicFirst": "Bitte nehmen sie zu erst ein Foto auf",
@@ -20,7 +20,11 @@
     "back": "Zurück",
     "address": "Adresse",
     "accessory": "Messezubehör",
-    "print": "Drucken"
+    "print": "Drucken",
+    "train": "Eisenbahn",
+    "home": "Startseite",
+    "company": "Firma",
+    "getCompanies": "Firmen abrufen"
   },
   "adminpanel": "Admin Oberfläche",
   "hier-koennen-sie-ein-foto-von-sich-machen-und-im-anschluss-direkt-ausdrucken-lassen-samt-initialiten": "Hier können sie ein Foto von sich mit ihren Details ausdrucken"

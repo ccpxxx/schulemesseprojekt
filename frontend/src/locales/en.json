@@ -12,7 +12,7 @@
     "pleasePicFirst": "Please take a picture first",
     "address": "Address",
     "interest": "Interests",
-    "official": "Corporate Client",
+    "official": "Sales represantative",
     "accessory": "Fairequipment",
     "pet": "Petequipment",
     "hobby": "Hobbycollector",
@@ -24,7 +24,10 @@
     "home": "Home",
     "client": "Client",
     "sendclientdata": "Send normal data",
-    "sendcorporateclientdata": "Send offical data"
+    "sendcorporateclientdata": "Send offical data",
+    "train": "Train",
+    "company": "Company",
+    "getCompanies": "Get Companies"
   },
   "adminpanel": "Adminpanel",
   "hier-koennen-sie-ein-foto-von-sich-machen-und-im-anschluss-direkt-ausdrucken-lassen-samt-initialiten": "Here  you can take a picture with your Details!"
