@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-container" v-if="title == selectedTitle">
+    <div :class="test" class="wrapper-container print" v-if="title == selectedTitle">
       <slot></slot>
     </div>
   </template>
@@ -18,7 +18,7 @@
     //     }
     //   }
     // }
-    const { title = "Tab" } = defineProps<{ title?: string }>()
+    const { title = "Tab", test ="test" } = defineProps<{ title?: string, test?: string }>()
     const isActive = $ref(true)
     const selectedTitle= inject('selectedTitle')
     console.log(selectedTitle)

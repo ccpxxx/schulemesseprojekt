@@ -5,6 +5,23 @@
     "panel": {
       "intro": "Willkommen zu unserem Stand!",
       "copy": "Hier können sie ein Foto von sich machen und im Anschluss direkt ausdrucken lassen samt initialiten"
-    }
-  }
+    },
+    "prename": "Vorname",
+    "name": "Nachname",
+    "newPicture": "Neues Foto aufnehmen",
+    "next": "Weiter",
+    "official": "Firmenkunde",
+    "pet": "Tierzubehör",
+    "takePhoto": "Foto aufnehmen",
+    "pleasePicFirst": "Bitte nehmen sie zu erst ein Foto auf",
+    "interest": "Interessen",
+    "hobby": "Hobbysammler",
+    "emit": "Bestätigen",
+    "back": "Zurück",
+    "address": "Adresse",
+    "accessory": "Messezubehör",
+    "print": "Drucken"
+  },
+  "adminpanel": "Admin Oberfläche",
+  "hier-koennen-sie-ein-foto-von-sich-machen-und-im-anschluss-direkt-ausdrucken-lassen-samt-initialiten": "Hier können sie ein Foto von sich mit ihren Details ausdrucken"
 }

@@ -1,6 +1,6 @@
 <template>
-    Confirm
-    {{obj}}
+  <slot />
+
 </template>
 
 <script setup lang="ts">

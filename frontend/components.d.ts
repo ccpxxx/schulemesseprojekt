@@ -7,6 +7,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Confirm: typeof import('./src/components/Confirm.vue')['default']
     ContactDetails: typeof import('./src/components/ContactDetails.vue')['default']
+    FinalCard: typeof import('./src/components/FinalCard.vue')['default']
     PictureUpload: typeof import('./src/components/PictureUpload.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
