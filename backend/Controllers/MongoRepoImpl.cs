@@ -1,5 +1,7 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 
 namespace Messe.Controllers
@@ -19,6 +21,29 @@ namespace Messe.Controllers
                 }
             var result = getMongoRepo().GetCollection<Customer>(table).Find(new BsonDocument());
             return result.ToList();
+            }
+            return new List<Customer>();
+        }
+
+        public override List<Customer> getCompanyCustomers(string table)
+        {
+            var collection = getMongoRepo().GetCollection<Customer>(table);
+       
+            try {
+                var res = collection.Find(new BsonDocument()).ToList();
+                List<Customer> companyCustomer = new List<Customer>();
+                foreach (Customer cust in res)
+                {
+                    if (cust.company != "private")
+                    {
+                        companyCustomer.Add(cust);
+                    }
+                }
+                return companyCustomer; 
+            
+            } catch(Exception e) 
+            {
+                
             }
             return new List<Customer>();
         }

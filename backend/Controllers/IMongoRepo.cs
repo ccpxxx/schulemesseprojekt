@@ -32,6 +32,7 @@ namespace Messe.Controllers
 
         public abstract void saveCustomer(string table,T record);
         public abstract List<T> getAllFromDb(string table);
+        public abstract List<T> getCompanyCustomers(string table);
 
         protected IMongoDatabase getMongoRepo()
         {

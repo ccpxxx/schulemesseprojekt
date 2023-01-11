@@ -33,11 +33,11 @@ namespace Messe.Controllers
             rep.saveCustomer(this.table, customer);
             return Ok();
         }
-        [HttpGet("getSpecificUser")]
+        [HttpGet("getCompanyCustomers")]
         [EnableCors("CorsApi")]
-        public IActionResult getSpecificUser()
+        public IActionResult getCompanyCustomers()
         {
-           return Ok();
+         return Ok(rep.getCompanyCustomers(table));
         }
     }
 }
