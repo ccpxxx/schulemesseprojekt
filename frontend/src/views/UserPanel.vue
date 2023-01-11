@@ -1,30 +1,13 @@
 <template>
   <main>
-    <div class="container mt-8 mx-auto pl-4">
-      <div class="w-1/2">
-        <div class="w-full">
 
-        
-        <h1>{{ $t('messe.panel.intro') }}</h1>
-        <h2>{{ $t('messe.panel.copy') }}</h2>
-      </div>
-      </div>
-    </div>
-
-     <div id="containers">
-	<video ref="video" autoplay="true" id="videoElement">
-	
-	</video>
-  <button class="p-4 text-red-400 m-4" @click="stop">Cheeeese</button>
-</div>
+    
     <TabWrapper :mode="mode">
-      <TabVue title="Tab 1"><SignUp :obj="obj" /></TabVue>
-      <TabVue title="Tab 2"><ContactDetails :obj="obj" /></TabVue>
-      <TabVue title="Tab 3"><PictureUpload :obj="obj" /></TabVue>
-      <TabVue title="Tab 4"><Confirm :obj="obj" /></TabVue>
+      <TabVue title="1"><SignUp :obj="userObject" /></TabVue>
+      <TabVue title="2"><ContactDetails :obj="userObject" /></TabVue>
+      <TabVue title="3"><PictureUpload @picture="switchTab" :obj="userObject" /></TabVue>
+      <TabVue title="4" ref="finalTab" :test="'test'"><Confirm  /><FinalCard :obj="userObject" /></TabVue>
     </TabWrapper>
-
-   
     </main>
 </template>
 
@@ -33,49 +16,64 @@
 // Über ein dekonstruiertes const können defaults definiert werden.
 import TabWrapper from '../components/TabWrapper.vue';
 import TabVue from '../components/Tab.vue';
-import axios from "axios"
-import UserObject from "../interfaces/UserObject"
-import { castToVueI18n, I18nInjectionKey } from 'vue-i18n';
-import { onMounted } from 'vue-demi';
-const video = $ref(null)
-onMounted(() => {
-  if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-}
-})
-function stop(e: any) {
-  var stream = video.srcObject;
-  var tracks = stream.getTracks();
-
-  for (var i = 0; i < tracks.length; i++) {
-    var track = tracks[i];
-    track.stop();
-  }
-}
-const userObject = $ref({ id: "2", name: "test" });
+import FinalCard from '../components/FinalCard.vue';
+import logo from '../assets/logo.png';
+import { triggerEvent } from '../utils/func';
+import { onMounted } from 'vue';
+const userObject = $ref({ id: "2", name: "test", picture: logo });
 let mode = $ref('dark')
 const changeStyle = () => {
   mode = mode === 'dark' ? 'light' : 'dark'
 }
 
-// const x = await axios.get("https://localhost:13377/api/messe/getUsers")
-const obj: UserObject = $ref({
-  firstname: "Hans",
-  name: "sss",
-  id: 2,
-  picture: "BLA"
-})
+function switchTab(logo: string): void  {
+  userObject.picture = logo
+  triggerEvent(document.querySelector(".confirm"), "click")
 
-// const test = await axios.post("https://localhost:13377/api/messe/submitcustomer", obj)
-// console.log(test, "BLA")
-// console.log(x, "X")
+
+  
+}
 // Siehe auch: https://vuejs.org/guide/extras/reactivity-transform.html 
 const { msg = "" } = defineProps<{ msg?: string }>()
 const count = $ref(0)
+
+function animatePicture() {
+  const picture = document.querySelector(".picture")
+  picture!.classList.add("animate__animated", "animate__bounceIn")
+  setTimeout(() => {
+    picture!.classList.remove("animate__animated", "animate__bounceIn")
+  }, 2000);
+}
 </script>
+
+<style>
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+.animate__bounceIn {
+  animation-name: bounceIn;
+}
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  70% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+
+</style>
