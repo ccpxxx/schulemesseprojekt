@@ -1,8 +1,8 @@
 export default interface UserObject {
-    firstname: string
-    name: string,
-    interests: string[];
+    name: string;
+    lastName: string;
+    address: string;
+    interests: string[] | undefined;
     picture: string;
-    company?: string;
-
+    company: string | boolean;
 }
